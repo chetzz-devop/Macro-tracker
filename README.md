@@ -81,7 +81,14 @@ Total macros calculation
 - Add food items through the admin panel.
 - Log food consumption from the dashboard when signed in.
 - Remove logged food entries from the dashboard.
+## Testing
 
+- Unit tests are included in `mysite/myapp/tests.py`.
+- Tests validate model behavior, authenticated food logging, dashboard rendering, and guest submission protection.
+- Run tests from the project root with:
+  ```bash
+  python .\mysite\manage.py test myapp
+  ```
 ## Notes
 
 - `DEBUG` is enabled for development in `mysite/mysite/settings.py`.
