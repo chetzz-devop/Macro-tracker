@@ -1,40 +1,71 @@
-# Macro Tracker MVP 🚀
+# Macro Tracker
 
-A high-performance nutritional management dashboard engineered for real-time macronutrient tracking. This application empowers users to maintain their dietary objectives through a streamlined, data-driven interface.
+A lightweight Django web application for tracking food macros and logging personal nutrition intake.
 
-## 🖥️ Product Interface
-As seen in **image_ca7b67.png**, the dashboard is designed for high-signal, low-friction user interaction:
-*   **Intuitive Meal Logging**: A clean, centralized input control allows for rapid meal selection and submission.
-*   **Real-time Analytics**: A visual progress bar provides immediate feedback on daily caloric intake, complemented by high-visibility summary cards for Carbs, Fats, and Proteins.
-*   **Structured Consumption Logs**: A dynamic table view enables users to review their historical food entries with clear metric breakdowns.
+## Overview
 
-## 🏗️ Technical Architecture
-This project is built using a robust Django MVT (Model-View-Template) architecture, emphasizing efficient data handling and server-side integrity.
+This project provides a simple macro tracking dashboard where authenticated users can log foods, view their consumed items, and remove entries. The app uses Django models, views, templates, and SQLite for storage.
 
-*   **Server-Side Rendering (SSR)**: Optimizes initial load times and provides a responsive user experience.
-*   **Relational Database Strategy**: Utilizes the Django ORM to maintain strict schema integrity between User accounts, Food catalogs, and Consumption logs.
-*   **Client-Side DOM Optimization**: Leverages vanilla JavaScript to compute and display metabolic totals without redundant server overhead.
-##project overview :
+## Features
 
+- Food item database with macro values for carbs, fats, proteins, and calories
+- User-specific food consumption logs
+- Secure POST handling for authenticated users
+- Delete ability for consumed food entries with class-based view support
+- Responsive UI built with plain HTML and modern CSS styling
+- Admin panel registration for `Food` and `Consumer` models
 
+## Tech Stack
 
-<img width="1866" height="881" alt="Screenshot 2026-05-28 190553" src="https://github.com/user-attachments/assets/1037a2ec-2576-4c29-b82a-ffa20152f6b6" />
+- Python
+- Django
+- SQLite
+- HTML/CSS
 
+## Project Structure
 
-<img width="1700" height="869" alt="image" src="https://github.com/user-attachments/assets/6aa0d42c-9b61-4e90-9262-685d346b78e6" />
+- `mysite/manage.py` - Django management entry point
+- `mysite/mysite/settings.py` - Django settings and project configuration
+- `mysite/myapp/models.py` - `Food` and `Consumer` database models
+- `mysite/myapp/views.py` - app views for logging and deleting food entries
+- `mysite/myapp/urls.py` - app URL routes
+- `mysite/myapp/templates/myapp/index.html` - main frontend dashboard
+- `mysite/myapp/admin.py` - admin registration for models
 
+## Setup
 
-## 🛠️ Tech Stack
-*   **Backend**: Django (Python)
-*   **Frontend**: HTML5, Modern CSS (Flexbox/Grid), Vanilla ES6+ JavaScript
-*   **Storage**: SQLite3 (Production-ready for PostgreSQL/MySQL)
-*   **Version Control**: Git
+1. Create and activate a Python virtual environment:
+   ```bash
+   python -m venv venv
+   .\venv\Scripts\activate
+   ```
+2. Install dependencies:
+   ```bash
+   pip install Django
+   ```
+3. Apply migrations:
+   ```bash
+   python manage.py migrate
+   ```
+4. Create a superuser for admin access:
+   ```bash
+   python manage.py createsuperuser
+   ```
+5. Run the development server:
+   ```bash
+   python manage.py runserver
+   ```
+6. Open the app in your browser:
+   - App: `http://127.0.0.1:8000/food/'
+   - Admin: `http://127.0.0.1:8000/admin/`
 
-## 📈 Roadmap & Scalability
-While currently optimized as a high-performance monolithic MVP, the architecture supports seamless evolution:
-1.  **Headless API Transition**: Refactoring views into a decoupled Django REST Framework (DRF) engine.
-2.  **State Management**: Porting the frontend to React or Vue.js for enhanced interactivity.
-3.  **Authentication**: Expanding user-specific dietary profiles and history tracking.
+## Usage
 
----
-*Developed for performance, scalability, and clean nutrition tracking.*
+- Add food items through the admin panel.
+- Log food consumption from the dashboard when signed in.
+- Remove logged food entries from the dashboard.
+
+## Notes
+
+- `DEBUG` is enabled for development in `mysite/mysite/settings.py`.
+- This project is intended as a lightweight example and may require hardening before production use.
